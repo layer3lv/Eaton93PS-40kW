@@ -1,0 +1,1158 @@
+zabbix_export:
+  version: '5.4'
+  date: '2024-06-17T17:28:18Z'
+  groups:
+    -
+      uuid: 0e68f753bc604f5d9d04717f95042762
+      name: APC
+  templates:
+    -
+      uuid: 6d2aef99fa4e4c40946221bc9c3c8dd8
+      template: Eaton93PS-40kW
+      name: Eaton93PS-40kW
+      groups:
+        -
+          name: APC
+      items:
+        -
+          uuid: 4bc4e4bb64a4456b86b5a0d7a37439c3
+          name: 'ICMP ping'
+          type: SIMPLE
+          key: icmpping
+          history: 1w
+          tags:
+            -
+              tag: Application
+              value: Status
+        -
+          uuid: f583a3a0a4c74b30aa4161f216da7462
+          name: 'ICMP loss'
+          type: SIMPLE
+          key: icmppingloss
+          history: 1w
+          value_type: FLOAT
+          units: '%'
+          tags:
+            -
+              tag: Application
+              value: Status
+        -
+          uuid: e1d4cb82030f4dafb71113013efffcdd
+          name: 'ICMP response time'
+          type: SIMPLE
+          key: icmppingsec
+          history: 1w
+          value_type: FLOAT
+          units: s
+          tags:
+            -
+              tag: Application
+              value: Status
+        -
+          uuid: 13f127c261fb47eebe7345f00164dc2d
+          name: 'Interface eth0(): Interface admin status'
+          type: SNMP_AGENT
+          snmp_oid: ifAdminStatus.3
+          key: ifAdminStatus.3
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: ebf152906a134262942ce22721f6254f
+          name: 'Interface eth0(): Interface description'
+          type: SNMP_AGENT
+          snmp_oid: ifDescr.3
+          key: ifDescr.3
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: a8641b18ae1a4c56aa11d5e34a39579c
+          name: 'Interface eth0(): Bits received'
+          type: SNMP_AGENT
+          snmp_oid: ifInOctets.3
+          key: ifInOctets.3
+          units: bps
+          preprocessing:
+            -
+              type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+            -
+              type: MULTIPLIER
+              parameters:
+                - '8'
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: 6fff03d69f404695b03b1415d0d8574a
+          name: 'Interface eth0(): Operational status'
+          type: SNMP_AGENT
+          snmp_oid: ifOperStatus.3
+          key: ifOperStatus.3
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: bf50d83004534fb4b5b158e93a8d6747
+          name: 'Interface eth0(): Bits sent'
+          type: SNMP_AGENT
+          snmp_oid: ifOutOctets.3
+          key: ifOutOctets.3
+          units: bps
+          preprocessing:
+            -
+              type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+            -
+              type: MULTIPLIER
+              parameters:
+                - '8'
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: 7be5cbd63bdf4b48be36447aa9175f27
+          name: 'Interface eth0(): Speed'
+          type: SNMP_AGENT
+          snmp_oid: ifSpeed.3
+          key: ifSpeed.3
+          units: bps
+          preprocessing:
+            -
+              type: CHANGE_PER_SECOND
+              parameters:
+                - ''
+            -
+              type: MULTIPLIER
+              parameters:
+                - '8'
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: efca0defaa3a4738801ec86e175c5b8b
+          name: 'Interface eth0(): Interface type'
+          type: SNMP_AGENT
+          snmp_oid: ifType.3
+          key: ifType.3
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: Network
+        -
+          uuid: 7c66b94e530e46958011739f7599bc59
+          name: 'Device contact details'
+          type: SNMP_AGENT
+          snmp_oid: sysContact.0
+          key: sysContact.0
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: 1aeccf9cdb7e43fc8c811dd41aab0704
+          name: 'Device description'
+          type: SNMP_AGENT
+          snmp_oid: sysDescr.0
+          key: sysDescr.0
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: 0be242dfd6044ddb932b1ca808aa8563
+          name: 'Device location'
+          type: SNMP_AGENT
+          snmp_oid: sysLocation.0
+          key: sysLocation.0
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: 92585b145a6d40b7bf1649040bbb41a6
+          name: Hostname
+          type: SNMP_AGENT
+          snmp_oid: sysName.0
+          key: sysName.0
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: 329ad49d9b7f4142b41c1f3aadf114ea
+          name: 'System object ID'
+          type: SNMP_AGENT
+          snmp_oid: sysObjectID.0
+          key: sysObjectID.0
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: cbda0644d9cd4d98964764a5f81c3dde
+          name: 'System Firmware'
+          type: SNMP_AGENT
+          snmp_oid: 1.3.6.1.4.1.534.1.1.3.0
+          key: System.Firmware
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: 129eba2c182240538e170bb053cad9eb
+          name: 'Device uptime'
+          type: SNMP_AGENT
+          snmp_oid: sysUpTimeInstance
+          key: sysUpTimeInstance
+          units: uptime
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: Application
+              value: Status
+        -
+          uuid: 2248711a92204659aa29face5d4551c1
+          name: 'UPS Alarms Present'
+          type: SNMP_AGENT
+          snmp_oid: upsAlarmsPresent.0
+          key: upsAlarmsPresent.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: cafc4b91fc1a477fa5840ac98c2c9b2f
+          name: 'UPS Auto Restart'
+          type: SNMP_AGENT
+          snmp_oid: upsAutoRestart.0
+          key: upsAutoRestart.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 4d5f13264240465c9d7aac1cd0f7542e
+          name: 'UPS Battery Current'
+          type: SNMP_AGENT
+          snmp_oid: upsBatteryCurrent.0
+          key: upsBatteryCurrent.0
+          delay: 10m
+          units: 'Amp DC'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 7eaaf0b123d346359fff77132b94ff84
+          name: 'UPS Battery Status'
+          type: SNMP_AGENT
+          snmp_oid: upsBatteryStatus.0
+          key: upsBatteryStatus.0
+          delay: 10m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: f654dbe269194cd5afee34ab7fb07672
+          name: 'UPS Battery Voltage'
+          type: SNMP_AGENT
+          snmp_oid: upsBatteryVoltage.0
+          key: upsBatteryVoltage.0
+          delay: 10m
+          units: 'Volt DC'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 93acd41b12d349259324d58a67d41454
+          name: 'UPS Bypass Current 1'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassCurrent.1
+          key: upsBypassCurrent.1
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 6e40c9a379f04af6b99ccb84538c45a9
+          name: 'UPS Bypass Current 2'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassCurrent.2
+          key: upsBypassCurrent.2
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 18421af0c9574ae9bb8a02f3c3e96cac
+          name: 'UPS Bypass Current 3'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassCurrent.3
+          key: upsBypassCurrent.3
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 0d82e99bd40e4bcb902c94f36d0eb789
+          name: 'UPS Bypass Frequency'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassFrequency.0
+          key: upsBypassFrequency.0
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 9fda397e8677447d9416c4ab95083c74
+          name: 'UPS Bypass Num Lines'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassNumLines.0
+          key: upsBypassNumLines.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 6ac95c1fb9b9495a85b19123ce921f56
+          name: 'UPS Bypass Power 1'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassPower.1
+          key: upsBypassPower.1
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 75e346d07e8445fda5b076cf654bdd62
+          name: 'UPS Bypass Power 2'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassPower.2
+          key: upsBypassPower.2
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: a87fd00f7c5e4d479a024ca96cba13fd
+          name: 'UPS Bypass Power 3'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassPower.3
+          key: upsBypassPower.3
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: b3f1b9950f61440481310c5e37ec9c4e
+          name: 'UPS Bypass Voltage 1'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassVoltage.1
+          key: upsBypassVoltage.1
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 54f489f2bafb4eb8957d681f7df8de31
+          name: 'UPS Bypass Voltage 2'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassVoltage.2
+          key: upsBypassVoltage.2
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: fb158a6a1a8946e5b60a4e5e9c1ff7ff
+          name: 'UPS Bypass Voltage 3'
+          type: SNMP_AGENT
+          snmp_oid: upsBypassVoltage.3
+          key: upsBypassVoltage.3
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Bypass lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: ddac17230e5247469e8a6c72cdafd132
+          name: 'UPS Config High Voltage Transfer Point'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigHighVoltageTransferPoint.0
+          key: upsConfigHighVoltageTransferPoint.0
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: f28ce329ed05477f9e9aa37c53bf03ab
+          name: 'UPS Config Input Frequency'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigInputFreq.0
+          key: upsConfigInputFreq.0
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: f5ff8bb8b7e5432f9830de30543aa645
+          name: 'UPS Config Input Voltage'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigInputVoltage.0
+          key: upsConfigInputVoltage.0
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 008ce698ebeb44409c5d1059eb53700d
+          name: 'UPS Config Low Voltage Transfer Point'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigLowVoltageTransferPoint.0
+          key: upsConfigLowVoltageTransferPoint.0
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 63274c218e154de19b9b78b770f5b218
+          name: 'UPS Config Output Frequency'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigOutputFreq.0
+          key: upsConfigOutputFreq.0
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 2f4ec07fda9e439a947337f69043777e
+          name: 'UPS Config Output Power'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigOutputPower.0
+          key: upsConfigOutputPower.0
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 510570e737c54f6398553dbc83dfcf99
+          name: 'UPS Config Output VA'
+          type: SNMP_AGENT
+          snmp_oid: upsConfigOutputVA.0
+          key: upsConfigOutputVA.0
+          delay: 5m
+          units: Volt-Amps
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 55879ab6a96b48e1bdb3a5fae0c09b0d
+          name: 'UPS Estimated Charge Remaining'
+          type: SNMP_AGENT
+          snmp_oid: upsEstimatedChargeRemaining.0
+          key: upsEstimatedChargeRemaining.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 97a8f86ac43844879b45a561b66da278
+          name: 'UPS Estimated Minutes Remaining'
+          type: SNMP_AGENT
+          snmp_oid: upsEstimatedMinutesRemaining.0
+          key: upsEstimatedMinutesRemaining.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 0afe051918db44cbaa7251a1c8d2dd9e
+          name: Manufacture
+          type: SNMP_AGENT
+          snmp_oid: upsIdentManufacturer.0
+          key: upsIdentManufacturer.0
+          delay: 5m
+          trends: '0'
+          value_type: LOG
+          tags:
+            -
+              tag: Application
+              value: System
+        -
+          uuid: a2167e62fe554f51a482d3bded6cc262
+          name: 'UPS Input Current 1'
+          type: SNMP_AGENT
+          snmp_oid: upsInputCurrent.1
+          key: upsInputCurrent.1
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: a17182c1c5aa4a46a4ec5bdec1c10941
+          name: 'UPS Input Current 2'
+          type: SNMP_AGENT
+          snmp_oid: upsInputCurrent.2
+          key: upsInputCurrent.2
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 082e2f0496904f459cf84f3ac695c9b9
+          name: 'UPS Input Current 3'
+          type: SNMP_AGENT
+          snmp_oid: upsInputCurrent.3
+          key: upsInputCurrent.3
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 9fb586aeebf949d581a45aa8cefc94e4
+          name: 'UPS Input Frequency 1'
+          type: SNMP_AGENT
+          snmp_oid: upsInputFrequency.1
+          key: upsInputFrequency.1
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 94426531de2649b595674298fcf72e59
+          name: 'UPS Input Frequency 2'
+          type: SNMP_AGENT
+          snmp_oid: upsInputFrequency.2
+          key: upsInputFrequency.2
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 5f6dad6602b144d389514856ce184613
+          name: 'UPS Input Frequency 3'
+          type: SNMP_AGENT
+          snmp_oid: upsInputFrequency.3
+          key: upsInputFrequency.3
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: fd65c7fe729c4a92afc641e9ade2dc6b
+          name: 'UPS Input Num Lines'
+          type: SNMP_AGENT
+          snmp_oid: upsInputNumLines.0
+          key: upsInputNumLines.0
+          delay: 10m
+          units: upsInputNumLines.0
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 8c8219eb07ef4d1c9c9571d2f58b17f6
+          name: 'UPS Input True Power 1'
+          type: SNMP_AGENT
+          snmp_oid: upsInputTruePower.1
+          key: upsInputTruePower.1
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 07679af7831c4a5d8c8edbd1ec9163b8
+          name: 'UPS Input True Power 2'
+          type: SNMP_AGENT
+          snmp_oid: upsInputTruePower.2
+          key: upsInputTruePower.2
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 68c8df14494041b29103b4690a0cbaa1
+          name: 'UPS Input True Power 3'
+          type: SNMP_AGENT
+          snmp_oid: upsInputTruePower.3
+          key: upsInputTruePower.3
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 5e819ddc1503453ba757ea8c589a4c07
+          name: 'UPS Input Voltage 1'
+          type: SNMP_AGENT
+          snmp_oid: upsInputVoltage.1
+          key: upsInputVoltage.1
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: f9cb8ee3fefd43cd98886acc4a9edd3d
+          name: 'UPS Input Voltage 2'
+          type: SNMP_AGENT
+          snmp_oid: upsInputVoltage.2
+          key: upsInputVoltage.2
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 90043f5cd2884b0ba2c7a51b96e92c14
+          name: 'UPS Input Voltage 3'
+          type: SNMP_AGENT
+          snmp_oid: upsInputVoltage.3
+          key: upsInputVoltage.3
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Input lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: fdeb21de6a084c13832e4af54e07af82
+          name: 'UPS Output Current 1'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputCurrent.1
+          key: upsOutputCurrent.1
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: e5ffc81cf0eb43218562bc1440d3f06f
+          name: 'UPS Output Current 2'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputCurrent.2
+          key: upsOutputCurrent.2
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: b66715da556942f9b0de4a102b1fe6b1
+          name: 'UPS Output Current 3'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputCurrent.3
+          key: upsOutputCurrent.3
+          delay: 5m
+          units: 'RMS Amp'
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 7096181aac054365b373102838b0f405
+          name: 'UPS Output Frequency'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputFrequency.0
+          key: upsOutputFrequency.0
+          delay: 5m
+          units: Hz
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.1'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 3dbc3ef27a1a4b619bae8c63d3326c45
+          name: 'UPS Output Num Lines'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputNumLines.0
+          key: upsOutputNumLines.0
+          delay: 10m
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: cac5438a281d45e5bbd83c55005a900b
+          name: 'UPS Output Percent Load 1'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputPercentLoad.1
+          key: upsOutputPercentLoad.1
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 214c46f0ae834b1aaac96a616382466b
+          name: 'UPS Output Percent Load 2'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputPercentLoad.2
+          key: upsOutputPercentLoad.2
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 058bf97375bc485f91c69505ae78a459
+          name: 'UPS Output Percent Load 3'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputPercentLoad.3
+          key: upsOutputPercentLoad.3
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: ca72b65d9a1b433985c4b6056ce68eb8
+          name: 'UPS Output Power 1'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputPower.1
+          key: upsOutputPower.1
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: ced8c87ccb10457a9ee40b5372d3e05a
+          name: 'UPS Output Power 2'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputPower.2
+          key: upsOutputPower.2
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: f68124b2becc4cccbdcfb567c58368d7
+          name: 'UPS Output Power 3'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputPower.3
+          key: upsOutputPower.3
+          delay: 5m
+          units: Watts
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 6c2280a15a3c4c0c9843df9a986939dc
+          name: 'UPS Output Source'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputSource.0
+          key: upsOutputSource.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 03d76357eb5d42aa9c4cac9b20ff627a
+          name: 'UPS Output Voltage 1'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputVoltage.1
+          key: upsOutputVoltage.1
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 72e46788f6214da499d7ced7542fc879
+          name: 'UPS Output Voltage 2'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputVoltage.2
+          key: upsOutputVoltage.2
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 401b5ab9ebc74a4ca6e3cbed1a614b58
+          name: 'UPS Output Voltage 3'
+          type: SNMP_AGENT
+          snmp_oid: upsOutputVoltage.3
+          key: upsOutputVoltage.3
+          delay: 5m
+          units: 'RMS Volts'
+          tags:
+            -
+              tag: Application
+              value: 'Output lines'
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 7f3150dcc51e466498e4f13f4d2aeccc
+          name: 'UPS Test Elapsed Time'
+          type: SNMP_AGENT
+          snmp_oid: upsTestElapsedTime.0
+          key: upsTestElapsedTime.0
+          delay: 5m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: dab6fcf9f59f435a87dca523f675d637
+          name: 'UPS Test Results Detail'
+          type: SNMP_AGENT
+          snmp_oid: upsTestResultsDetail.0
+          key: upsTestResultsDetail.0
+          delay: 5m
+          trends: '0'
+          value_type: CHAR
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: 5fcb35d1aebe47079c9f0d5b58b61938
+          name: 'UPS Test Results Summary'
+          type: SNMP_AGENT
+          snmp_oid: upsTestResultsSummary.0
+          key: upsTestResultsSummary.0
+          delay: 10m
+          tags:
+            -
+              tag: Application
+              value: UPS
+        -
+          uuid: bf6ab974eff649b89d765048b2122ed5
+          name: 'UPS Test Start Time'
+          type: SNMP_AGENT
+          snmp_oid: upsTestStartTime.0
+          key: upsTestStartTime.0
+          delay: 5m
+          units: uptime
+          preprocessing:
+            -
+              type: MULTIPLIER
+              parameters:
+                - '0.01'
+          tags:
+            -
+              tag: Application
+              value: UPS
